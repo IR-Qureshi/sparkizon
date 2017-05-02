@@ -1,7 +1,11 @@
 package com.example.dellpc.sparkizon;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -10,11 +14,21 @@ import java.util.List;
 public class ActivityStoreList extends AppCompatActivity {
     private ListView mStoreListView;
     private AdapterStoreList mAdapterStoreList;
+    Button BtnFeedBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_list);
+
+        BtnFeedBack = (Button) findViewById(R.id.BtnFeedBack);
+        BtnFeedBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityStoreList.this,ActivityFeedBack.class);
+                startActivity(intent);
+            }
+        });
 
         mStoreListView = (ListView) findViewById(R.id.storeList);
         List<ClassStore> classStoreList = new ArrayList<>();
@@ -28,6 +42,14 @@ public class ActivityStoreList extends AppCompatActivity {
 
         mAdapterStoreList = new AdapterStoreList(this,R.layout.custom_store_item,classStoreList);
         mStoreListView.setAdapter(mAdapterStoreList);
+
+        mStoreListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ActivityStoreList.this, ActivityStoreHome.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

@@ -15,7 +15,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityStoreList"></activity>
+        <activity android:name=".ActivityStoreList" />
+        <activity android:name=".ActivityStoreHome" />
+        <activity android:name=".OrderScreen" />
+        <activity android:name=".ActivityInfo" />
+        <activity android:name=".ActivityFindStore" />
+        <activity android:name=".ActivityMenu" />
+        <activity android:name=".ActivityOrderList" />
+        <activity android:name=".ActivityLogin" />
+        <activity android:name=".ActivityFeedBack"></activity>
     </application>
 
 </manifest>
